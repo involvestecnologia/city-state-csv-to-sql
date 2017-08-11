@@ -2,7 +2,9 @@
   "verbose": true,
   "ignore": [
     ".git",
-    "node_modules"
+    "node_modules",
+    "src/results.sql",
+    "src/results.json"
   ],
   "env": {
     "NODE_ENV": "development"

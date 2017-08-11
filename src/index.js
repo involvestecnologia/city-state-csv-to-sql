@@ -144,31 +144,7 @@ function writeEditCity(stateId, stateName, cityId, oldCityName, newCityName) {
 }
 
 function formatResultsFile() {
-  resultsFile.write('===Adicionar estados');
-  _.forEach(results.statesToAdd, writeResultsFile);
-
-  resultsFile.write('\n\n===Editar estados');
-  _.forEach(results.statesToEdit, (state) => {
-    resultsFile.write(`\n ${state.id} - ${state.oldStateName} - ${state.newStateName}`);
-  });
-
-  resultsFile.write('\n\n===Adicionar cidades');
-  _.forEach(results.citiesToAdd, writeResultsFile);
-
-  resultsFile.write('\n\n===Editar cidades');
-  _.forEach(results.citiesToEdit, (data, state) => {
-    resultsFile.write(`\n ${state}`);
-    _.forEach(data.cities, (city) => {
-      resultsFile.write(`\n    ${city.id} - ${city.oldName} - ${city.name}`);
-    });
-  });
-}
-
-function writeResultsFile(data, state) {
-  resultsFile.write(`\n ${state}`);
-  _.forEach(data.cities, (city) => {
-    resultsFile.write(`\n    ${city}`);
-  });
+  resultsFile.write(JSON.stringify(results, null, 2));
 }
 
 function writeSqlFile() {
