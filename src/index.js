@@ -12,7 +12,7 @@ const SQL_FILE_PATH = process.env.SQL_FILE_PATH;
 
 const connection = promiseMysql.createConnection({
   host: process.env.HOST,
-  user: process.env.USER,
+  user: process.env.USERNAME,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
 });
@@ -37,7 +37,7 @@ readFileAsync(CSV_FILE_PATH)
   .then(statesSearch)
   .then(formatResultsFile)
   .then(writeSqlFile)
-  .then(() => connection.end())
+  .then(() => connection.then(con => con.end()))
   .catch((err) => {
     console.error(err);
   });
