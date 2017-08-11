@@ -1,0 +1,22 @@
+{
+  "name": "state-city-sql-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "csv": "^1.1.1",
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4",
+    "mysql": "^2.14.1",
+    "promise-mysql": "^3.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "nodemon": "^1.11.0"
+  }
+}
