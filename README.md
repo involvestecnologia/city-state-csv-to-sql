@@ -42,3 +42,4 @@ No meu CSV eu alterei o nome para: **Cidade 1 Longo**
 Na consulta, este item estará nos itens a serem adicionados.
 
 Até esse problema ser resolvido, você terá de verificar no `results.json` na propriedade `citiesToAdd` se os registros corretos estão para serem adicionados.
+
