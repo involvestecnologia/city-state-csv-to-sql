@@ -150,27 +150,20 @@ function formatResultsFile() {
 function writeSqlFile() {
   sqlFile.write('-- EDITAR ESTADOS\n');
   _.forEach(results.statesToEdit, (state) => {
-    sqlFile.write(`UPDATE ESTADO
-      SET nome = "${state.newStateName}"
-        WHERE id = ${state.id}
-        AND country_code = "BO";`);
+    sqlFile.write(`UPDATE ESTADO SET nome = "${state.newStateName}" WHERE nome = "${state.oldStateName}" AND country_code = "BO";`);
   });
 
   sqlFile.write('\n\n-- ADICIONAR CIDADES\n');
   _.forEach(results.citiesToAdd, (data) => {
     _.forEach(data.cities, (city) => {
-      sqlFile.write(`INSERT INTO CIDADE (id_estado, nome) 
-        VALUES (${data.stateId}, '${city}');\n\n`);
+      sqlFile.write(`INSERT INTO CIDADE (id_estado, nome) VALUES (${data.stateId}, "${city}");\n\n`);
     });
   });
 
   sqlFile.write('\n\n-- EDITAR CIDADES\n');
   _.forEach(results.citiesToEdit, (data) => {
     _.forEach(data.cities, (city) => {
-      sqlFile.write(`UPDATE CIDADE 
-        SET nome = "${city.name}"
-          WHERE id = ${city.id}
-          AND id_estado = ${data.stateId};\n\n`);
+      sqlFile.write(`UPDATE CIDADE SET nome = "${city.name}" WHERE id_estado = ${data.stateId} AND nome = "${city.oldName}";\n\n`);
     });
   });
 }
