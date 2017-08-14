@@ -43,3 +43,11 @@ Na consulta, este item estará nos itens a serem adicionados.
 
 Até esse problema ser resolvido, você terá de verificar no `results.json` na propriedade `citiesToAdd` se os registros corretos estão para serem adicionados.
 
+- Também há um problema caso os nomes das cidades sejam parecidos, por exemplo:
+
+1. Possuo uma cidade no banco de dados chamada `Villa Sacabamba`
+2. E no meu CSV eu desejo atualizar esse registro para `Sacabamba`
+3. Mas no meu CSV eu também desejo inserir uma cidade chamada `Sacaba`
+4. Ao gerar o script, ele vai encarar os dois registros como um, ou seja, ele vai gerar um update de `Villa Sacabamba` para `Sacabamba`, e vai gerar outro updade de `Sacabamba` para `Sacaba`
+
+
