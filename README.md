@@ -39,8 +39,6 @@ Possuo um registro na tabela de cidade com o nome: **Cidade 1**
 
 No meu CSV eu alterei o nome para: **Cidade 1 Longo**
 
-Neste caso, o script não irá identificar que esse registro foi alterado.
+Na consulta, este item estará nos itens a serem adicionados.
 
-- Para encontrar o que foi inserido incorretamente, basta executar as queries
-- E então executar novamente o script
-- Caso apareça algum outro valor 
+Até esse problema ser resolvido, você terá de verificar no `results.json` na propriedade `citiesToAdd` se os registros corretos estão para serem adicionados.
