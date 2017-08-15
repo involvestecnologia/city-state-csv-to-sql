@@ -156,7 +156,7 @@ function writeSqlFile() {
   sqlFile.write('\n\n-- ADICIONAR CIDADES\n');
   _.forEach(results.citiesToAdd, (data) => {
     _.forEach(data.cities, (city) => {
-      const sql = `INSERT INTO CIDADE(id_estado,nome) SELECT * FROM (SELECT ${data.stateId},"${city}") AS tmp WHERE NOT EXISTS (SELECT nome FROM CIDADE WHERE nome = "${city}") LIMIT 1;\n\n`;
+      const sql = `INSERT INTO CIDADE(id_estado,nome) SELECT * FROM (SELECT ${data.stateId},"${city}") AS tmp WHERE NOT EXISTS (SELECT nome FROM CIDADE WHERE nome = "${city}" AND id_estado=${data.stateId}) LIMIT 1;\n\n`;
       sqlFile.write(sql);
     });
   });
