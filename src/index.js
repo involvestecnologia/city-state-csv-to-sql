@@ -9,12 +9,14 @@ require('dotenv').config();
 const CSV_FILE_PATH = process.env.CSV_FILE_PATH;
 const RESULT_FILE_PATH = process.env.RESULT_FILE_PATH;
 const SQL_FILE_PATH = process.env.SQL_FILE_PATH;
+const COUNTRY_CODE = process.env.COUNTRY_INITIAL;
 
 const connection = promiseMysql.createConnection({
   host: process.env.HOST,
   user: process.env.USERNAME,
   password: process.env.PASSWORD,
   database: process.env.DATABASE,
+  port: process.env.PORT,
 });
 
 const readFileAsync = promisify(fs.readFile);
@@ -65,7 +67,7 @@ function transformStateGroup(content) {
 function statesSearch(states) {
   const promises = _.map(states, (cities, state) => {
     return connection.then((con) => {
-      const sql = `SELECT id, nome FROM ESTADO WHERE nome LIKE "%${state}%" AND country_code = "BO" LIMIT 1`;
+      const sql = `SELECT id, nome FROM ESTADO WHERE nome LIKE "%${state}%" AND country_code = "${COUNTRY_CODE}" LIMIT 1`;
       return con.query(sql);
     })
       .then((result) => {

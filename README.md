@@ -11,9 +11,11 @@ HOST="seu-host.com"
 USERNAME="username-do-db"
 PASSWORD="senha-do-db"
 DATABASE="database"
+PORT=3360
 CSV_FILE_PATH="./src/input.csv"
 RESULT_FILE_PATH="./src/results.tmp"
 SQL_FILE_PATH="./src/results.sql"
+COUNTRY_INITIAL="BR"
 ```
 
 2. **CSV_FILE_PATH:** caminho para o arquivo csv contendo os estados e cidades desejados
@@ -64,9 +66,11 @@ HOST="seu-host.com"
 USERNAME="username-do-db"
 PASSWORD="senha-do-db"
 DATABASE="database"
+PORT=3360
 CSV_FILE_PATH="./src/input.csv"
 RESULT_FILE_PATH="./src/results.tmp"
 SQL_FILE_PATH="./src/results.sql"
+COUNTRY_INITIAL="BR"
 ```
 
 1. **CSV_FILE_PATH:** caminho para o arquivo csv contendo os estados e cidades desejados
